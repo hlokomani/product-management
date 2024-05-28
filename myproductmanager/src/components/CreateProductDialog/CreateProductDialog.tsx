@@ -26,6 +26,7 @@ import {
   
 import { useToast } from "@/components/ui/use-toast";
 import { createProduct } from "@/api/api";
+import React from 'react';
 
 const CreateProductDialog: React.FC = () => {
   const [newProduct, setNewProduct] = useState({ Name: "", Category: "1", Price: "" });

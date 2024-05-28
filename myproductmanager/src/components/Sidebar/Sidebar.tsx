@@ -7,8 +7,9 @@ import {
     CommandSeparator,
   } from "@/components/ui/command";
   import { LayoutDashboard, PackageSearch, ScatterChart } from "lucide-react";
-  import { ModeToggle } from "./ModeToggle";
+  import { ModeToggle } from "../ModeToggle";
   import { useRouter } from "next/navigation";
+  import React from 'react';
   
   export default function Sidebar() {
     const router = useRouter();

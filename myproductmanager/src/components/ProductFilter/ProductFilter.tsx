@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Select, SelectItem, SelectContent, SelectTrigger } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import React from 'react';
 
 interface ProductFilterProps {
   filter: string;
