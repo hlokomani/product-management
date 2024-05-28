@@ -25,7 +25,7 @@ import { ModeToggle } from "./ModeToggle";
     return (
       <div className="w-[300px] border-r min-h-screen">
         <div className="grow">
-          <Command>
+          <Command className="shadow-md">
             <CommandList>
               {sidebarList.map((menu: any, key: number) => (
                 <CommandGroup key={key} heading={menu.group}>
