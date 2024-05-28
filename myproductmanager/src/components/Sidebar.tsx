@@ -1,3 +1,4 @@
+'use client'
 import {
     Command,
     CommandGroup,
@@ -5,18 +6,19 @@ import {
     CommandList,
     CommandSeparator,
   } from "@/components/ui/command";
-import { LayoutDashboard, PackageSearch, ScatterChart} from "lucide-react";
-import { ModeToggle } from "./ModeToggle";
-
+  import { LayoutDashboard, PackageSearch, ScatterChart } from "lucide-react";
+  import { ModeToggle } from "./ModeToggle";
+  import { useRouter } from "next/navigation";
   
   export default function Sidebar() {
+    const router = useRouter();
   
     const sidebarList = [
       {
         group: "General",
         items: [
           { link: "/", text: "Dashboard", icon: <LayoutDashboard /> },
-          { link: "/", text: "Products", icon: <PackageSearch /> },
+          { link: "/products", text: "Products", icon: <PackageSearch /> },
           { link: "/", text: "Insights", icon: <ScatterChart /> },
         ],
       },
@@ -30,17 +32,22 @@ import { ModeToggle } from "./ModeToggle";
               {sidebarList.map((menu: any, key: number) => (
                 <CommandGroup key={key} heading={menu.group}>
                   {menu.items.map((option: any, optionKey: number) => (
-                    <CommandItem key={optionKey} className="flex gap-2 cursor-pointer">
+                    <CommandItem
+                      key={optionKey}
+                      className="flex gap-2 cursor-pointer"
+                      onSelect={() => router.push(option.link)}
+                    >
                       {option.icon} {option.text}
                     </CommandItem>
                   ))}
                 </CommandGroup>
               ))}
               <CommandSeparator />
-              <ModeToggle/>
+              <ModeToggle />
             </CommandList>
           </Command>
         </div>
       </div>
     );
   }
+  
