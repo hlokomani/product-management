@@ -1,5 +1,6 @@
 # Product Management App
 
+[![CI](https://github.com/hlokomani/product-management/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/hlokomani/product-management/actions/workflows/ci.yaml)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/hlokomani/product-management/ci.yaml)
 ![GitHub last commit](https://img.shields.io/github/last-commit/hlokomani/product-management)
 ![GitHub forks](https://img.shields.io/github/forks/hlokomani/product-management)
