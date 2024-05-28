@@ -1,9 +1,9 @@
 'use client'
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import ProductCard from "@/components/ProductCard";
-import ProductFilter from "@/components/ProductFilter";
-import CreateProductDialog from "@/components/CreateProductDialog";
+import ProductCard from "@/components/ProductCard/ProductCard";
+import ProductFilter from "@/components/ProductFilter/ProductFilter";
+import CreateProductDialog from "@/components/CreateProductDialog/CreateProductDialog";
 import { fetchProducts } from "@/api/api";
 import { Button } from "@/components/ui/button";
 
