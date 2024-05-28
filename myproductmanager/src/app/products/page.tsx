@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {
   Card,
   CardHeader,
@@ -27,6 +28,7 @@ export default function ProductsPage() {
   const [ascending, setAscending] = useState(true);
   const [filter, setFilter] = useState("");
   const [totalPages, setTotalPages] = useState(1);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -47,7 +49,7 @@ export default function ProductsPage() {
       <div className="mb-4 flex items-center">
         <Input
           type="text"
-          placeholder="Search for products..."
+          placeholder="Filter products..."
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           className="mr-4"
@@ -82,7 +84,12 @@ export default function ProductsPage() {
               <p className="text-lg font-bold">R{product.Price}</p>
             </CardContent>
             <CardFooter>
-              <Button variant="outline">View Details</Button>
+              <Button
+                variant="outline"
+                onClick={() => router.push(`/products/${product.Id}`)}
+              >
+                View Details
+              </Button>
             </CardFooter>
           </Card>
         ))}
