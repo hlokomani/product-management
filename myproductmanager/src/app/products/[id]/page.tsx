@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from "react";
-import { useRouter, useParams } from "next/navigation"; // Correct import for app router
+import { useRouter, useParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,6 +29,7 @@ import {
   AlertTitle,
 } from "@/components/ui/alert";
 import { useToast } from "@/components/ui/use-toast";
+import { fetchProductById, updateProduct, deleteProduct } from "@/api/api";
 
 interface Product {
   Id: number;
@@ -40,8 +41,7 @@ interface Product {
 export default function ProductDetailsPage() {
   const router = useRouter();
   const params = useParams();
-  const { id } = params; // get id
-  console.log(id);
+  const { id } = params;
   const [product, setProduct] = useState<Product | null>(null);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
@@ -49,10 +49,7 @@ export default function ProductDetailsPage() {
   useEffect(() => {
     if (id) {
       const fetchProduct = async () => {
-        const response = await fetch(
-          `https://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/${id}`
-        );
-        const data = await response.json();
+        const data = await fetchProductById(id as string);
         setProduct(data);
       };
 
@@ -70,16 +67,7 @@ export default function ProductDetailsPage() {
       return;
     }
 
-    const response = await fetch(
-      `https://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(product),
-      }
-    );
+    const response = await updateProduct(id as string, product);
 
     if (response.ok) {
       toast({
@@ -91,12 +79,7 @@ export default function ProductDetailsPage() {
   };
 
   const handleDelete = async () => {
-    const response = await fetch(
-      `https://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/${id}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const response = await deleteProduct(id as string);
 
     if (response.ok) {
       toast({

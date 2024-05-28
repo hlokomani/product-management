@@ -16,7 +16,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({ filter, setFilter, orderB
     <div className="mb-4 flex items-center">
       <Input
         type="text"
-        placeholder="Filter products..."
+        placeholder="Search for products..."
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
         className="mr-4"
