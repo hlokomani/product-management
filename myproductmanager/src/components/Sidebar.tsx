@@ -17,15 +17,14 @@ import {
       {
         group: "General",
         items: [
-          { link: "/", text: "Dashboard", icon: <LayoutDashboard /> },
-          { link: "/products", text: "Products", icon: <PackageSearch /> },
+          { link: "/products", text: "Browse Products", icon: <PackageSearch /> },
           { link: "/", text: "Insights", icon: <ScatterChart /> },
         ],
       },
     ];
   
     return (
-      <div className="w-[300px] border-r min-h-screen">
+      <div className="w-[300px] border-r min-h-80vh">
         <div className="grow">
           <Command className="shadow-md">
             <CommandList>
