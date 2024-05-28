@@ -60,7 +60,7 @@ const CreateProductDialog: React.FC = () => {
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" onClick={() => setIsDialogOpen(true)}>Create Product</Button>
+        <Button onClick={() => setIsDialogOpen(true)}>Create Product</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
