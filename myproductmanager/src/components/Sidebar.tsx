@@ -18,7 +18,6 @@ import {
         group: "General",
         items: [
           { link: "/products", text: "Browse Products", icon: <PackageSearch /> },
-          { link: "/", text: "Insights", icon: <ScatterChart /> },
         ],
       },
     ];
